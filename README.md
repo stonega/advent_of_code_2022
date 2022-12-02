@@ -15,7 +15,7 @@ set up folders for each day's code and input files like so:
 ├─input
 │ └─XX
 │   ├─input.txt
-│   └─test.txt
+│   └─example.txt
 ├─src
 │ ├─dayXX
 │ │ ├─input.rs
