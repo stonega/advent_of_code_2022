@@ -1,11 +1,6 @@
-# Eric's Advent of Code 2022 Solutions
+# Elliott's Advent of Code 2022 Solutions
 
-## The Blog
-
-For the last two years, I've blogged my approaches to the Advent of Code puzzles on my
-[personal site](https://www.ericburden.work/blog/). Assuming I hold true to form, each 
-blog post will include code and commentary on my thinking behind the approach, my thoughts
-about the puzzles, and vain attempts at wit.
+Template stolen from Eric's Advent of Code 2022 Solutions and modified to suit my needs.
 
 ## Project Structure
 
@@ -39,14 +34,15 @@ There are a few organizational notes to point out here:
   input file will be parsed into, and a convenience function `run(_: Part) -> Output`
   that reads in the input and solves for either part one or part two, depending on the
   variant of `Part` that is passed and returns the result as an Output (for consistency). 
-  This file also contains the tests that cofirm the answer once it has been found.
+  This file also contains the tests that cofirm the answer once it has been found and 
+  tests that run your solutions against the example data provided in the problem.
 - `Output` is an enum with variants for `u32`, `i32`, `u64, `i64`, and `String`. This
   allows the binary to expect the same (printable) type from each day's solution.
 - Input files are being included in each day's `input.rs` via the `include_str!()` macro,
   which means parsing will be on the file contents as one long, newline-separated, string
-  slice. The main entrypoint for input parsing is the `read() -> Input` function which
-  takes no arguments (relying on the included `INPUT` constant) and returns the parsed
-  input file.
+  slice. The main entrypoint for input parsing is the `read() -> Input` and `read_example() -> Input` functions which
+  takes no arguments (relying on the included `INPUT` and `EXAMPLE_INPUT` constants) and return the parsed
+  input files. The logic for parsing the input should be implemented in `read_internal(input: &str) -> Input`.
 - The `part1.rs` and `part2.rs` files each contain a `solve(_: &Input) -> Output` function
   that takes a reference to the parsed input and returns the solution for that part of
   that day.
