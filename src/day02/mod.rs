@@ -26,8 +26,8 @@ pub struct Round {
 
 pub type Input = Vec<Round>;
 
-fn score_selection(round: &Round) -> u32 {
-    match round.mine {
+fn score_attack(attack: &AttackType) -> u32 {
+    match attack {
         AttackType::Rock => 1,
         AttackType::Paper => 2,
         AttackType::Scissors => 3,
@@ -40,16 +40,6 @@ fn score_result(result: &RoundResult) -> u32 {
         RoundResult::Loss => 0,
         RoundResult::Draw => 3,
     }
-}
-
-fn calculate_result(round: &Round) -> RoundResult {
-    if round.theirs == round.mine {
-        return RoundResult::Draw;
-    }
-    if they_won(round) {
-        return RoundResult::Loss;
-    }
-    return RoundResult::Win;
 }
 
 fn they_won(round: &Round) -> bool {
@@ -79,6 +69,7 @@ mod tests {
     #[test]
     fn check_example_one() {
         let result = run(Part::ExampleOne);
+        assert_eq!(result, 15);
     }
 
     #[test]
@@ -88,8 +79,14 @@ mod tests {
     }
 
     #[test]
+    fn check_example_two() {
+        let result = run(Part::ExampleTwo);
+        assert_eq!(result, 12);
+    }
+
+    #[test]
     fn check_answer_two() {
         let result = run(Part::Two);
-        println!("{result}");
+        assert_eq!(result, 13_131)
     }
 }

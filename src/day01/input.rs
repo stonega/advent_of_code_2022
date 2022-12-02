@@ -1,14 +1,23 @@
 use crate::day01::Input;
 
+const EXAMPLE_INPUT: &str = include_str!("../../input/01/example.txt");
 const INPUT: &str = include_str!("../../input/01/input.txt");
 
-/// Read and parse the input file
 pub fn read() -> Input {
+    read_internal(INPUT)
+}
+
+pub fn read_example() -> Input {
+    read_internal(EXAMPLE_INPUT)
+}
+
+/// Read and parse the input file
+pub fn read_internal(input: &str) -> Input {
     // Iterate over each empty-line separated "chunk",
     // parsing each chunk into a total calorie count
     // per Elf, returning the list of total calories per
     // Elf.
-    INPUT
+    input
         .trim()
         .split("\n\n")
         .map(try_parse_elf_calories)

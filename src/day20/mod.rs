@@ -23,8 +23,20 @@ mod tests {
     use super::*;
 
     #[test]
+    fn check_example_one() {
+        let result = run(Part::ExampleOne);
+        println!("{result}");
+    }
+
+    #[test]
     fn check_answer_one() {
         let result = run(Part::One);
+        println!("{result}");
+    }
+
+    #[test]
+    fn check_example_two() {
+        let result = run(Part::ExampleTwo);
         println!("{result}");
     }
 
