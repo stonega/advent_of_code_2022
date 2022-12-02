@@ -1,6 +1,6 @@
 # Elliott's Advent of Code 2022 Solutions
 
-Template stolen from Eric's Advent of Code 2022 Solutions and modified to suit my needs.
+Template stolen from [Eric's Advent of Code 2022 Solutions](https://github.com/ericwburden/advent_of_code_2022) and modified to suit my needs.
 
 ## Project Structure
 
