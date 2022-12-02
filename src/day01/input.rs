@@ -36,11 +36,9 @@ mod test {
         let input = read();
 
         let first = *input.first().unwrap();
-        assert_eq!(first, 44656);
+        assert_eq!(first, 18814);
 
         let last = *input.last().unwrap();
-        assert_eq!(last, 48165);
-
-        assert_eq!(input.len(), 264);
+        assert_eq!(last, 53978);
     }
 }

@@ -11,10 +11,14 @@ use crate::{Output, Part};
 pub type Input = Vec<u32>;
 
 pub fn run(part: Part) -> Output {
-    let input = input::read();
+    let input = match part {
+        Part::One | Part::Two => input::read(),
+        Part::ExampleOne | Part::ExampleTwo => input::read_example(),
+    };
+
     match part {
-        Part::One => part1::solve(&input),
-        Part::Two => part2::solve(&input),
+        Part::ExampleOne | Part::One => part1::solve(&input),
+        Part::ExampleTwo | Part::Two => part2::solve(&input),
     }
 }
 
@@ -25,12 +29,12 @@ mod tests {
     #[test]
     fn check_answer_one() {
         let result = run(Part::One);
-        assert_eq!(result, 69795);
+        assert_eq!(result, 69626);
     }
 
     #[test]
     fn check_answer_two() {
         let result = run(Part::Two);
-        assert_eq!(result, 208437);
+        assert_eq!(result, 206780);
     }
 }

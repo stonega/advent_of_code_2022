@@ -7,10 +7,14 @@ use crate::{Output, Part};
 pub type Input = u8;
 
 pub fn run(part: Part) -> Output {
-    let input = input::read();
+    let input = match part {
+        Part::One | Part::Two => input::read(),
+        Part::ExampleOne | Part::ExampleTwo => input::read_example(),
+    };
+
     match part {
-        Part::One => part1::solve(&input),
-        Part::Two => part2::solve(&input),
+        Part::ExampleOne | Part::One => part1::solve(&input),
+        Part::ExampleTwo | Part::Two => part2::solve(&input),
     }
 }
 

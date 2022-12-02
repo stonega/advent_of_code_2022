@@ -30,7 +30,9 @@ pub mod day25;
 
 // Used as a flag to indicate which part of a day to run.
 pub enum Part {
+    ExampleOne,
     One,
+    ExampleTwo,
     Two,
 }
 
