@@ -1,4 +1,10 @@
+use std::str::Bytes;
+
+use nom::Slice;
+
 use crate::day03::Input;
+
+use super::RuckSacks;
 
 const EXAMPLE_INPUT: &str = include_str!("../../input/03/example.txt");
 const INPUT: &str = include_str!("../../input/03/input.txt");
@@ -12,7 +18,7 @@ pub fn read_example() -> Input {
 }
 
 pub fn read_internal(input: &str) -> Input {
-    unimplemented!()
+    input.trim().split("\n").map(RuckSacks::from_str).collect()
 }
 
 #[cfg(test)]

@@ -34,7 +34,7 @@ There are a few organizational notes to point out here:
   input file will be parsed into, and a convenience function `run(_: Part) -> Output`
   that reads in the input and solves for either part one or part two, depending on the
   variant of `Part` that is passed and returns the result as an Output (for consistency). 
-  This file also contains the tests that cofirm the answer once it has been found and 
+  This file also contains the tests that confirm the answer once it has been found and 
   tests that run your solutions against the example data provided in the problem.
 - `Output` is an enum with variants for `u32`, `i32`, `u64, `i64`, and `String`. This
   allows the binary to expect the same (printable) type from each day's solution.

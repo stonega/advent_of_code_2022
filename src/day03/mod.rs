@@ -2,9 +2,39 @@ pub mod input;
 pub mod part1;
 pub mod part2;
 
+use std::{error::Error, io::Result, str::Bytes};
+
+use nom::Slice;
+
 use crate::{Output, Part};
 
-pub type Input = u8;
+pub type Input = Vec<RuckSacks>;
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct RuckSacks {
+    first: String,
+    second: String,
+    complete: String
+}
+
+impl RuckSacks {
+    fn from_str(input: &str) -> RuckSacks {
+        let length = input.len();
+        let first = String::from(&input[0..length / 2]);
+        let second = String::from(&input[length / 2..length]);
+        let complete = String::from(input);
+        return RuckSacks { first, second, complete };
+    }
+
+    fn find_same_item(&self) -> u16 {
+        for item in self.first.chars() {
+            if (self.second.contains(item)) {
+                return item as u16;
+            }
+        }
+        return 0;
+    }
+}
 
 pub fn run(part: Part) -> Output {
     let input = match part {
