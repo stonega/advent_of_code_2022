@@ -28,7 +28,7 @@ impl RuckSacks {
 
     fn find_same_item(&self) -> u16 {
         for item in self.first.chars() {
-            if (self.second.contains(item)) {
+            if self.second.contains(item) {
                 return item as u16;
             }
         }

@@ -5,7 +5,7 @@ pub fn solve(input: &Input) -> Output {
     for rucksacks in input.iter() {
         let item = rucksacks.find_same_item();
         result += item;
-        if(item >= 97) {
+        if item >= 97 {
             result -= 96  
         } else {
             result -= 38
