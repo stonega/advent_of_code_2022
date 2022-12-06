@@ -4,7 +4,16 @@ pub mod part2;
 
 use crate::{Output, Part};
 
-pub type Input = u8;
+pub type Input = (Vec<CrateStack>, Vec<Action>);
+
+pub type CrateStack = Vec<char>;
+
+#[derive(Debug)]
+pub struct Action {
+    from: u8,
+    to: u8,
+    amount: u8
+}
 
 pub fn run(part: Part) -> Output {
     let input = match part {

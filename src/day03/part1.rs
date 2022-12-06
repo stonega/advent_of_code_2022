@@ -10,8 +10,6 @@ pub fn solve(input: &Input) -> Output {
         } else {
             result -= 38
         }
-        println!("{}", result);
-        // result = result - 96
     }
     return result.into()
 }
