@@ -12,7 +12,7 @@ pub type CrateStack = Vec<char>;
 pub struct Action {
     from: u8,
     to: u8,
-    amount: u8
+    amount: u8,
 }
 
 pub fn run(part: Part) -> Output {

@@ -14,7 +14,7 @@ pub type Input = Vec<RuckSacks>;
 pub struct RuckSacks {
     first: String,
     second: String,
-    complete: String
+    complete: String,
 }
 
 impl RuckSacks {
@@ -23,7 +23,11 @@ impl RuckSacks {
         let first = String::from(&input[0..length / 2]);
         let second = String::from(&input[length / 2..length]);
         let complete = String::from(input);
-        return RuckSacks { first, second, complete };
+        return RuckSacks {
+            first,
+            second,
+            complete,
+        };
     }
 
     fn find_same_item(&self) -> u16 {

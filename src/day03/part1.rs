@@ -6,10 +6,10 @@ pub fn solve(input: &Input) -> Output {
         let item = rucksacks.find_same_item();
         result += item;
         if item >= 97 {
-            result -= 96  
+            result -= 96
         } else {
             result -= 38
         }
     }
-    return result.into()
+    return result.into();
 }

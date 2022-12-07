@@ -31,17 +31,17 @@ impl Camp {
     }
 
     fn is_overlap_2(&self) -> bool {
-            for section in self.first.iter() {
-                if self.second.contains(section) {
-                    return true;
-                }
+        for section in self.first.iter() {
+            if self.second.contains(section) {
+                return true;
             }
-            for section in self.second.iter() {
-                if self.first.contains(section) {
-                    return true;
-                }
+        }
+        for section in self.second.iter() {
+            if self.first.contains(section) {
+                return true;
             }
-            return false
+        }
+        return false;
     }
 }
 pub fn run(part: Part) -> Output {
