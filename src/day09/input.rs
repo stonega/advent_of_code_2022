@@ -1,5 +1,7 @@
 use crate::day09::Input;
 
+use super::MoveStep;
+
 const EXAMPLE_INPUT: &str = include_str!("../../input/09/example.txt");
 const INPUT: &str = include_str!("../../input/09/input.txt");
 
@@ -12,7 +14,7 @@ pub fn read_example() -> Input {
 }
 
 pub fn read_internal(input: &str) -> Input {
-    unimplemented!()
+    input.split("\n").map(|s| MoveStep::try_from(s)).collect()
 }
 
 #[cfg(test)]

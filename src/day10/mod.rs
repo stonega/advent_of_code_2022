@@ -4,7 +4,12 @@ pub mod part2;
 
 use crate::{Output, Part};
 
-pub type Input = u8;
+#[derive(Debug)]
+pub enum Instruction {
+    Noop,
+    Addx(i16),
+}
+pub type Input = Vec<Instruction>;
 
 pub fn run(part: Part) -> Output {
     let input = match part {
