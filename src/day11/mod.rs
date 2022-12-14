@@ -2,9 +2,41 @@ pub mod input;
 pub mod part1;
 pub mod part2;
 
+use rug::Integer;
+
 use crate::{Output, Part};
 
-pub type Input = u8;
+pub type Item = Integer;
+pub type Input = (Vec<Vec<Item>>, Vec<Monkey>);
+
+#[derive()]
+pub struct Monkey {
+    inspect: fn(item: &mut Item) -> (),
+    test: fn(item: &Item) -> u8,
+}
+
+impl Monkey {
+    fn inspect_operation(&self, items: &mut Vec<Item>) {
+        for i in items {
+            (self.inspect)(i)
+        }
+    }
+
+    fn bored(&self, items: &mut Vec<Item>) {
+        for i in items {
+            *i /= 3;
+        }
+    }
+
+    fn test_operation(&self, items: &Vec<Item>) -> Vec<(usize, Item)> {
+        let mut result: Vec<(usize, Item)> = vec![];
+        for i in items {
+            let d = (self.test)(&i) as usize;
+            result.push((d.try_into().unwrap(), i.clone()))
+        }
+        result
+    }
+}
 
 pub fn run(part: Part) -> Output {
     let input = match part {

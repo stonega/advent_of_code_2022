@@ -13,7 +13,6 @@ pub fn solve(input: &Input) -> Output {
         }
     }
 
-
     for i in 0..9 {
         println!("{:?}", positions.len());
         positions = get_positions(&positions);
@@ -27,9 +26,8 @@ pub fn solve(input: &Input) -> Output {
 fn get_positions(ps: &Vec<Position>) -> Vec<Position> {
     let start = &ps[0];
     let mut positions: Vec<Position> = vec![start.clone()];
-    for i in 1..ps.len() -1 {
+    for i in 1..ps.len() - 1 {
         if near_positions(&positions.last().unwrap(), &ps[i + 1]) {
-            
             positions.push(ps[i].clone());
         }
     }
@@ -42,7 +40,7 @@ fn near_positions(first: &Position, second: &Position) -> bool {
 
 fn check_position(source: &Position, current: &Position, next: &Position) -> Position {
     if source.x == current.x || source.y == current.y {
-       return current.clone();
+        return current.clone();
     }
     current.clone()
 }

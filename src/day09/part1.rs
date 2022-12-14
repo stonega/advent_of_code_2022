@@ -1,4 +1,4 @@
-use crate::day09::{Input, Output, Dedup};
+use crate::day09::{Dedup, Input, Output};
 
 use super::{Dir, MoveStep, Position};
 
@@ -21,17 +21,17 @@ pub fn solve(input: &Input) -> Output {
     len.into()
 }
 
-fn near_positions(first: &Position, second: &Position) -> bool{
-    return first.x.abs_diff(second.x) > 1 || first.y.abs_diff(second.y) > 1
+fn near_positions(first: &Position, second: &Position) -> bool {
+    return first.x.abs_diff(second.x) > 1 || first.y.abs_diff(second.y) > 1;
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::day09::Position;
     use super::near_positions;
+    use crate::day09::Position;
     fn check_near_positions() {
-        let first = Position {x:10, y:-10};
-        let second = Position {x:9, y:-10};
+        let first = Position { x: 10, y: -10 };
+        let second = Position { x: 9, y: -10 };
         let result = near_positions(&first, &second);
         println!("{result}");
     }

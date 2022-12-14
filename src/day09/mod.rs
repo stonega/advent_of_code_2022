@@ -38,7 +38,6 @@ impl<T: PartialEq + Clone> Dedup<T> for Vec<T> {
     }
 }
 
-
 impl Position {
     fn move_position(step: &Dir, start: &Self) -> Self {
         let x = start.x.clone();
@@ -46,8 +45,8 @@ impl Position {
         match step {
             Dir::Left => Position { x: start.x - 1, y },
             Dir::Right => Position { x: x + 1, y },
-            Dir::Up => Position { x, y: y + 1},
-            Dir::Down => Position { x, y: y -1 },
+            Dir::Up => Position { x, y: y + 1 },
+            Dir::Down => Position { x, y: y - 1 },
         }
     }
 }
